@@ -84,25 +84,24 @@ func calculate(num1 int, num2 int, operand string, output bool) interface{} {
 
 	}
 	if !output {
+		if result == 0 {
+			panic("Результатом работы калькулятора с римскими числами могут быть только положительные числа")
+		}
 		return arabTorom(result)
 
 	}
 	return result
 }
-func arabTorom(value int) string {
-	romain_num := map[int]string{
-		1:  "I",
-		2:  "II",
-		3:  "III",
-		4:  "IV",
-		5:  "V",
-		6:  "VI",
-		7:  "VII",
-		8:  "VIII",
-		9:  "IX",
-		10: "X",
-	}
-	return romain_num[value]
+func arabTorom(index int) string {
+	var romain = []string{"0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX",
+		"XXI", "XXII", "XXIII", "XXIV", "XXV", "XXVI", "XXVII", "XXVIII", "XXIX", "XXX", "XXXI", "XXXII", "XXXIII", "XXXIV", "XXXV", "XXXVI", "XXXVII", "XXXVIII", "XXXIX", "XL",
+		"XLI", "XLII", "XLIII", "XLIV", "XLV", "XLVI", "XLVII", "XLVIII", "XLIX", "L", "LI", "LII", "LIII", "LIV", "LV", "LVI", "LVII", "LVIII", "LIX", "LX",
+		"LXI", "LXII", "LXIII", "LXIV", "LXV", "LXVI", "LXVII", "LXVIII", "LXIX", "LXX",
+		"LXXI", "LXXII", "LXXIII", "LXXIV", "LXXV", "LXXVI", "LXXVII", "LXXVIII", "LXXIX", "LXXX",
+		"LXXXI", "LXXXII", "LXXXIII", "return romain_num[value]LXXXIV", "LXXXV", "LXXXVI", "LXXXVII", "LXXXVIII", "LXXXIX", "XC",
+		"XCI", "XCII", "XCIII", "XCIV", "XCV", "XCVI", "XCVII", "XCVIII", "XCIX", "C"}
+	return romain[index]
+
 }
 
 func isExist(value string, list map[string]int) bool {
